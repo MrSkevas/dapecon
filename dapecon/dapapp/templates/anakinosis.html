@@ -1,0 +1,65 @@
+{% extends 'arxiki.html' %}
+{% block css_files %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'blogs.css' %}">
+{% endblock %}
+{% block title %}Ανακοινώσεις - ΔΑΠ ΟΙΚΟΝΟΜΙΚΟΥ ΑΠΘ{% endblock %}
+{% block content %}
+<body>
+    <h1 style="margin-top: 100px; color: darkblue; font-family: Arial, Helvetica, sans-serif; 
+    font-size: 25px; text-align: center;">
+        Ανακοινώσεις.
+    </h1>
+    <section style="display: flex; flex-wrap: wrap;">
+        {% for blog in blogs %}
+        <a href="{% url 'dap:post_detail1' slug1=blog.slug1 %}" class="postt">
+            <div style="border: solid darkblue; border-radius: 10px; margin: 10px; padding: 10px; flex-basis: calc(33.33% - 20px);">
+                <h2 style="font-family: Arial, Helvetica, sans-serif; color: darkblue; margin-top: 0;">{{ blog.title1 }}</h2>
+                <img src="{% static '/'|add:blog.image_name1 %}" style="width: 100%; max-width: 450px; height: auto; margin-bottom: 10px;">
+                <p style="font-family: Arial, Helvetica, sans-serif;">{{ blog.content1|truncatechars:40 }}</p>
+                <p style="font-family: Arial, Helvetica, sans-serif; color: black;">Date Created: {{ blog.date1 }}</p>
+            </div>
+        </a>
+        {% empty %}
+        <p>No blogs found.</p>
+        {% endfor %}
+    </section>
+</body>
+
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+    
+    <h1 style="margin-top: 100px; color: darkblue; font-family: Arial, Helvetica, sans-serif; 
+    font-size: 25px; text-align: center;">
+    Οι δράσεις μας.
+</h1>
+    
+
+    <section style="display: flex; flex-wrap: wrap;">
+        {% for post in posts %}
+        <a href="{% url 'dap:post_detail' slug=post.slug %}" class="postt">
+            <div style="border: solid darkblue; border-radius: 10px; margin: 10px; padding: 10px; flex-basis: calc(33.33% - 20px);">
+                <h2 style="font-family: Arial, Helvetica, sans-serif; color: darkblue; margin-top: 0;">{{ post.title }}</h2>
+                <img src="{% static '/'|add:post.image_name %}" style="width: 100%; max-width: 450px; height: auto; margin-bottom: 10px;">
+                <p style="font-family: Arial, Helvetica, sans-serif;">{{ post.content|truncatechars:40 }}</p>
+            
+                <p style="font-family: Arial, Helvetica, sans-serif; color: black;">Date Created: {{ post.date }}</p>
+            </div>
+        </a>
+        {% empty %}
+        <p>No blogs found.</p>
+        {% endfor %}
+       
+    </section>
+</body>
+
+{% endblock %}
+</html>
+

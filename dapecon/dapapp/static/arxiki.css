@@ -1,0 +1,52 @@
+.foto1{
+    width: 190px;
+    height: 170px;
+  }
+  
+  
+  
+  .navbar {
+      list-style-type: none; /* Remove default list bullet */
+      padding: 0; /* Remove default padding */
+      margin: 0; /* Remove default margin */
+      justify-content: space-around;
+      margin-left: 150px;
+      margin-top: -100px;
+      
+    }
+    
+    .navbar li {
+      display: inline-block; /* Display list items horizontally */
+      text-decoration: none;
+      padding-left: 50px;
+      padding-right: 50px;
+    
+    }
+    
+  .navbar li .a1{
+    color: darkblue;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    
+  }
+  .a1{
+    position: relative;
+    letter-spacing: 0.5px;
+    padding: 0;
+  
+  }
+  .a1:after{
+    content: "";
+    position: absolute;
+    background-color: darkblue;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+  }
+  .a1:hover:after{
+    width: 100%;
+  
+  }
+

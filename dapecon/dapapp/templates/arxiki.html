@@ -1,0 +1,244 @@
+{% load static %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'arxiki.css' %}">
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Αρχική - ΔΑΠ ΟΙΚΟΝΟΜΙΚΟΥ ΑΠΘ{% endblock %}</title>
+
+</head>
+<body > 
+    <link rel="icon" type="image/png" href="{% static 'icon1.png' %}">
+
+ <a href="http://127.0.0.1:8000/"><img src="{% static 'icon1.png' %}" alt="DAP SYMBOL" class="foto1"> </a>
+ <div class="menu-items" style="margin-top: -50px;">
+
+
+
+
+
+
+
+    <ul class="navbar" style="font-size: 10px; margin-left: 200px; margin-right: -60px; ">
+        <li class="nav-item-left" style=" margin-right: -50px"><a href="http://127.0.0.1:8000/" class="a1">Αρχική</a></li>
+        <li class="nav-item" style="margin-right: -60px;"><a href="/anakinoseis/" class="a1">Ανακοινώσεις</a></li>
+        <li class="nav-item" style="margin-right: -60px;"><a href="/istoria/" class="a1">Η Ιστορία μας</a></li>
+        <li class="nav-item"><a href="/contact/" class="a1">Επικοινωνία</a></li>
+    </ul>
+    
+  
+
+
+</div>
+<style>
+ 
+  /* Existing CSS styles */
+
+  /* Hamburger menu styles */
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+  }
+
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: darkblue;
+  }
+
+  @media (max-width: 600px) {
+    .navbar{
+      display: none;
+    }
+
+    /* Show hamburger menu on smaller screens */
+    .hamburger {
+      display: block;
+    }
+
+    /* Animate hamburger icon */
+    .hamburger.active .bar:nth-child(2) {
+      opacity: 0;
+    
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+      transform: translate(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+      transform: translate(-8px) rotate(-45deg);
+    }
+
+    /* Update navbar styles for mobile */
+    .navbar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      background-color: black;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px;
+      text-align: center;
+      z-index: 999;
+      height: 110vh; /* Set the height to full viewport height */
+      }
+
+    .navbar.active {
+      display: flex;
+    }
+
+    .nav-item {
+      margin: 10px 0;
+    }
+
+    /* Adjust the position of the last menu item */
+   
+
+  }
+</style>
+
+
+<div class="hamburger">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navbar = document.querySelector('.navbar');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navbar.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.a1').forEach((n) => {
+      n.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navbar.classList.remove('active');
+      });
+    });
+  });
+</script>
+
+
+</body>
+
+{% block content %}
+<h3 style="text-align: center; font-family: Arial, Helvetica, sans-serif;
+color: darkblue; font-size: 25px;">Αρχική</h3>
+<img src="{% static 'body.png' %}" alt="Your Image" style="margin-top: 250px; position: absolute;top: 50%; 
+left: 50%; transform: translate(-50%, -50%); border: 7px solid darkblue; border-radius: 5px;
+height: 100vh; ">
+
+<style>
+.postt {
+  color: darkblue;
+  text-decoration: none;
+}
+
+.postt:hover {
+  /* Remove hover effect specifically for posts */
+  text-decoration: none;
+}
+
+.postt.clicked {
+  text-decoration: none;
+  color: darkblue;
+}
+</style>
+
+
+
+
+
+<h3 style="margin-top: 800px; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 25px; 
+ color: darkblue;">
+Η τελευταία ανακοίνωση μας:
+</h3>
+
+
+
+{% if latest_anakinosis_post %}
+<div style="margin: 10px; text-align: center; margin-top: ;">
+  <a href="{% url 'dap:post_detail1' slug1=latest_anakinosis_post.slug1 %}" class="postt">
+    <div style="display: inline-block; border: solid darkblue; border-radius: 10px; padding: 10px;">
+      <h2 style="font-family: Arial, Helvetica, sans-serif; color: darkblue; margin-top: 0; font-size: 16px;">{{ latest_anakinosis_post.title1 }}</h2>
+      <div style="max-width: 400px; margin: 0 auto;">
+        <img src="{% static '/'|add:latest_anakinosis_post.image_name1 %}" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+      </div>
+      <p style="font-family: Arial, Helvetica, sans-serif; font-size: 14px;">{{ latest_anakinosis_post.content1|truncatechars:40 }}</p>
+      <p style="font-family: Arial, Helvetica, sans-serif; color: black; font-size: 12px;">Date Created: {{ latest_anakinosis_post.date1 }}</p>
+    </div>
+  </a>
+</div>
+
+
+
+{% else %}
+<p>No latest post found for anakinosis.</p>
+{% endif %}
+
+
+<h3 style="color: darkblue; font-size: 25px; 
+    text-align: center; font-family: Arial, Helvetica, sans-serif;">Οι δράσεις μας:</h3>
+
+{% if latest_posts_post %}
+<div style="margin: 10px; text-align: center; ">
+  <a href="{% url 'dap:post_detail' slug=latest_posts_post.slug %}" class="postt">
+    <div style="display: inline-block; border: solid darkblue; border-radius: 10px; padding: 10px;">
+      <h2 style="font-family: Arial, Helvetica, sans-serif; color: darkblue; margin-top: 0; font-size: 16px;">{{ latest_posts_post.title }}</h2>
+      <div style="max-width: 400px; margin: 0 auto;">
+        <img src="{% static '/'|add:latest_posts_post.image_name %}" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+      </div>
+      <p style="font-family: Arial, Helvetica, sans-serif; font-size: 14px;">{{ latest_posts_post.content|truncatechars:40 }}</p>
+      <p style="font-family: Arial, Helvetica, sans-serif; color: black; font-size: 12px;">Date Created: {{ latest_posts_post.date }}</p>
+    </div>
+  </a>
+</div>
+{% else %}
+<p>No latest post found for posts.</p>
+{% endif %}
+
+
+
+<h3 style="font-family: Arial, Helvetica, sans-serif; color: darkblue; text-align: center;
+font-size: 25px;">Οι ιδέες μας:</h3>
+
+
+{% if latest_ideas_post %}
+<div style="margin: 10px; text-align: center; ">
+  <a href="{% url 'dap:post_detail2' slug2=latest_ideas_post.slug2 %}" class="postt">
+    <div style="display: inline-block; border: solid darkblue; border-radius: 10px; padding: 10px;">
+      <h2 style="font-family: Arial, Helvetica, sans-serif; color: darkblue; margin-top: 0; font-size: 16px;">{{ latest_ideas_post.title2 }}</h2>
+      <div style="max-width: 400px; margin: 0 auto;">
+        <img src="{% static '/'|add:latest_ideas_post.image_name2 %}" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+      </div>
+      <p style="font-family: Arial, Helvetica, sans-serif; font-size: 14px;">{{ latest_posts_post.content2|truncatechars:40 }}</p>
+      <p style="font-family: Arial, Helvetica, sans-serif; color: black; font-size: 12px;">Date Created: {{ latest_ideas_post.date2 }}</p>
+    </div>
+  </a>
+</div>
+{% else %}
+<p>No latest post found for anakinosis.</p>
+{% endif %}
+
+
+{% endblock %}
+</html>

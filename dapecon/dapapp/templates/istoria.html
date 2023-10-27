@@ -1,0 +1,171 @@
+{% extends 'arxiki.html' %}
+{% load static %}
+<html>
+{% block title %}Ιστορία - ΔΑΠ ΟΙΚΟΝΟΜΙΚΟΥ ΑΠΘ {% endblock %}
+
+{% block content %}
+
+
+<style>
+
+.foto1{
+  width: 190px;
+  height: 170px;
+}
+
+
+
+
+  
+  .navbar li {
+    display: inline-block; /* Display list items horizontally */
+    margin-right: 10px; /* Add spacing between list items */
+    text-decoration: none;
+    padding-left: 50px;
+    padding-right: 50px;
+  
+  }
+  
+.navbar li .a1{
+  color: darkblue;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  
+}
+.a1{
+  position: relative;
+  letter-spacing: 0.5px;
+  padding: 0;
+
+}
+.a1:after{
+  content: "";
+  position: absolute;
+  background-color: darkblue;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -10px;
+}
+.a1:hover:after{
+  width: 100%;
+
+}
+
+
+.postt {
+  color: darkblue;
+  text-decoration: none;
+}
+
+.postt:hover {
+  /* Remove hover effect specifically for posts */
+  text-decoration: none;
+}
+
+.postt.clicked {
+  text-decoration: none;
+  color: darkblue;
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<body>
+  <style>
+    h3 {
+      font-family: Arial, Helvetica, sans-serif;
+      margin-top: 100px;
+      text-align: center;
+      font-size: 25px;
+      color: darkblue;
+    }
+    
+    
+    
+    .content-container {
+      text-align: center;
+      border: 5px solid darkblue;
+      background-color: darkblue;
+      border-radius: 20px;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 800px;
+    }
+    
+    @media (max-width: 600px) {
+      .image {
+        height: 70vh;
+
+      }
+      
+      .content-container {
+        margin: 20px;
+      }
+    }
+  </style>
+
+  <h3>Η ιστορία μας.</h3>
+<div  style="text-align: center; ">
+  <img src="{% static 'back1.jpg' %}" alt="Background Image" class="image" style="
+        height: 70vh; border: 7px solid darkblue; border-radius: 6px; ">
+</div>
+  <div class="content-container">
+    <p>Η  ΔΑΠ-ΝΔΦΚ του Αριστοτελείου Πανεπιστημίου Θεσσαλονίκης και τμήματος Οικονομικών επιστημών<br>
+      μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλαμπλα<br>
+      μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα<br>
+      μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα<br>
+      μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα<br>
+      μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα<br>
+      μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα<br>
+      μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα<br>
+      μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα<br>
+      μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα<br>
+      μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα<br>
+      μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα<br>
+      μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα<br>
+      μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα μπλα.</p>
+  </div>
+
+</body>
+</html>
+
+
+
+<html>
+    <body>
+        <h3 style="text-align: center; font-size: 25px; 
+        font-family: Arial, Helvetica, sans-serif; color: darkblue;
+        margin-top: 100px;">Οι ιδέες μας.</h3>
+        <section style="display: flex; flex-wrap: wrap; ">
+            {% for idea in ideas %}
+            <a  href="{% url 'dap:post_detail2' slug2=idea.slug2 %}" class="postt">
+                <div style="border: solid darkblue; border-radius: 10px; margin: 10px; padding: 10px; flex-basis: calc(33.33% - 20px);
+                margin-top: 100px; margin-left: 20px">
+                    <h2 style="font-family: Arial, Helvetica, sans-serif; color: darkblue; margin-top: 0;">{{ idea.title2 }}</h2>
+                    <img src="{% static '/'|add:idea.image_name2 %}" style="width: 100%; max-width: 450px; height: auto; margin-bottom: 10px;">
+                    <p style="font-family: Arial, Helvetica, sans-serif;">{{ idea.content2|truncatechars:30 }}</p>
+                    <p style="font-family: Arial, Helvetica, sans-serif; color: black;">Date Created: {{ idea.date2 }}</p>
+                </div>
+            </a>
+            {% empty %}
+            <p>No blogs found.</p>
+            {% endfor %}
+        </section>
+    </body>
+    {% endblock %}
+</html>

@@ -1,0 +1,155 @@
+{% extends 'arxiki.html' %}
+{% load static %}
+
+{% block title %}Επικοινωνία - ΔΑΠ ΟΙΚΟΝΟΜΙΚΟΥ ΑΠΘ{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'ideas.css' %}">
+
+<style>
+    /* Existing styles... */
+
+    /* New style for phone number input field */
+    .phone-label,
+    .phone-input {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .phone-label label {
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .phone-input input[type="tel"],
+    .phone-input input[type="tel"]:focus {
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+   
+
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+    }
+    .border{
+        border: 4px solid darkblue;
+        background-color: darkblue;
+        display: inline;    
+    }
+
+    h3 {
+        
+        text-align: center;
+        align-items: center;
+        border-radius: 7px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        font-size: 30px;
+    }
+
+    form {
+        width: 100%;
+        max-width: 400px;
+        padding: 20px;
+        background-color: #f7f7f7;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    input,
+    textarea {
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    button {
+        border: none;
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: darkblue;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    @media only screen and (min-width: 480px) {
+        form {
+            width: 400px;
+        }
+    }
+    input[type="tel"] {
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<body style="font-family: Arial, Helvetica, sans-serif;">
+    <div style="text-align: center; margin-top: 100px;">
+
+    <h3 class="border">Συνδέσου άμεσα μαζί μας.</h3>
+</div>
+<p style="margin-top: -120px;">
+    <div class="center">
+        <form method="post">
+            {% csrf_token %}
+            
+            <div>
+                <label for="id_name">Ονοματεπώνυμο:</label>
+                <input type="text" name="name" id="id_name" placeholder="Πληκτρολόγησε το ονοματεπώνυμο σου" required>
+            </div>
+            
+            <div>
+                <label for="id_email">Email:</label>
+                <input type="email" name="email" id="id_email" placeholder="Πληκτρολόγησε το email σου" required>
+            </div>
+            
+            <!-- New phone number input field -->
+           
+                <label for="id_phone">Τηλέφωνο:</label>
+                <div>
+                <input type="tel" name="phone" id="id_phone" placeholder="Πληκτρολόγησε τον αριθμό τηλεφώνου σου" required>
+            </div>
+            
+            <div>
+                <label for="id_message">Μήνυμα:</label>
+                <textarea name="message" id="id_message" placeholder="Γράψε μας τι χρειάζεσαι... π.χ. σημειώσεις στο Μάρκετινγκ" required></textarea>
+            </div>
+            
+            <button type="submit">Υποβολή</button>
+        </form>
+    </div>
+</p>
+</body>
+{% endblock %}
