@@ -1,6 +1,6 @@
 # dapecon
 
-This website is made using python-django, html css and a little bit javascript.
+This website is made using python-django, html css and some javascript.
 
 In order to run it you will have to clone my repository by typing on the bash: 
 
